@@ -44,8 +44,16 @@ class BinaryTree:
     def min(self):
         return self.min_internal(self.root)
         
-
-            
+    def max_internal(self, node):
+        if node == None:
+            return None
+        if node.right != None:
+            return self.max_internal(node.right)
+        else:
+            return node.value
+    
+    def max(self):
+        return self.max_internal(self.root)
 
     def print_tree(self):
         self.traverse(self.root)
@@ -73,4 +81,5 @@ tree.insert_node(1)
 tree.insert_node(-200)
 print(tree.search(75))
 print("Min: " + str(tree.min()))
+print("Max: " + str(tree.max()))
 #tree.print_tree()
